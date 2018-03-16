@@ -1,0 +1,9 @@
+<span class="task" [class.done]="task.done">
+    <span (click)="toggleSelected()" class="control-done">
+        <span *ngIf="task.done; then done else undone"></span>
+    </span>
+    {{ task.title }}
+</span>
+
+<ng-template #done>[x]</ng-template>
+<ng-template #undone>[_]</ng-template>

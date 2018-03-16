@@ -3,16 +3,23 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { TaskComponent } from './task/task.component';
+import { TaskListService } from './task-list/task-list.service';
 
+import { PluralPipe } from './pipes/plural.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskListComponent,
+    TaskComponent,
+    PluralPipe,
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [TaskListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
