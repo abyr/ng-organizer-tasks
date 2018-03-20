@@ -8,14 +8,23 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({ name: 'plural' })
 
 export class PluralPipe implements PipeTransform {
-    transform(count: number, args?: any): any {
-        console.log('plural', count, args);
-        if (!count) { 
-            return `No ${args}s`;
-        } else if (count === 1) {
-            return `${count} ${args}`;
+    transform(value: any, title: string): any {
+        let count;
+        
+        if (typeof value === 'number') {
+            count = value;
+        } else if (Array.isArray(value)) {
+            count = value.length
         } else {
-            return `${count} ${args}s`;
+            count = Number(value) || 0;
+        }
+        
+        if (!count) { 
+            return `No ${title}s`;
+        } else if (count === 1) {
+            return `${count} ${title}`;
+        } else {
+            return `${count} ${title}s`;
         }
     }
 }

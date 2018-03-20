@@ -2,6 +2,7 @@
     text-decoration: line-through;
 }
 
-.control-done {
+.control-done,
+.control-remove {
     cursor: pointer;
 }

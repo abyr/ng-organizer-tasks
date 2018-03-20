@@ -1,0 +1,9 @@
+<input 
+    [(ngModel)]="task.title"
+    
+    placeholder="New task..."
+    
+    (keyup.enter)="save()"
+    (keyup.escape)="cancel()"
+    (blur)="cancel()"
+/>

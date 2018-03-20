@@ -1,9 +1,15 @@
+<app-create-task
+    (addTask)="addTask($event)"
+></app-create-task>
+
 <ul class="task-list">
     <li *ngFor="let task of taskList">
         <app-task 
             [task]="task"
-            (selected)="highlight($event)"
-        ></app-task>    
+            (statusChanged)="saveChanges()"
+            (removeTask)="removeFromList($event)"
+        ></app-task>
     </li>
 </ul>
-{{ taskList.length | plural: "task" }} left
+
+<span>{{ todoCount | plural: "task" }} left</span>

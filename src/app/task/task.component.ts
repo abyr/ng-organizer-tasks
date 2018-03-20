@@ -12,12 +12,19 @@ export class TaskComponent implements OnInit {
   task: Task;
   
   @Output()
-  selected = new EventEmitter<string>();
+  statusChanged = new EventEmitter<string>();
   
-  toggleSelected() {
+  @Output()
+  removeTask = new EventEmitter<string>();
+  
+  toggleDone() {
     console.log('toggle selected');
     this.task.done = !this.task.done;
-    this.selected.emit(this.task.title);
+    this.statusChanged.emit(this.task.title);
+  }
+  
+  remove() {
+    this.removeTask.emit(this.task.title);
   }
   
   ngOnInit() {}

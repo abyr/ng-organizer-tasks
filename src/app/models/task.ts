@@ -2,7 +2,8 @@ export class Task {
   title: string;
   done: boolean;
   
-  constructor(title) {
-      this.title = title;
+  constructor(title?: string) {
+      this.title = title || '';
+      this.done = false;
   }
 }

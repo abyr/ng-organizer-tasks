@@ -11,18 +11,40 @@ export class TaskListComponent implements OnInit {
   
     taskList: Task[]; 
     
+    todoCount: Number;
+    
     constructor(private taskListService: TaskListService) { }
     
     ngOnInit() {
+        this.resetList();
+    }
+    
+    addTask(task) {
+        this.resetList(this.taskList.concat(task));
+    }
+    
+    removeFromList(title: string) {
+        console.log('remove', title);
+        const filteredList = this.taskList.filter(x => x.title !== title);
+        
+        this.resetList(filteredList);
+    }
+    
+    saveChanges() {
+        this.taskListService.setList(this.taskList);
+        this.todoCount = this.taskList.filter(x => !x.done).length;
+    }
+    
+    resetList(list?: Task[]) {
+        if (list) {
+            this.taskListService.setList(list);
+        }
         this.taskList = this.getTaskList();
+        this.todoCount = this.taskList.filter(x => !x.done).length;
     }
     
     getTaskList() {
         return this.taskListService.getList();
-    }
-    
-    highlight(title: string) {
-      console.log('highlight', title);
     }
     
 }
