@@ -13,7 +13,7 @@ export class LocalStorageService {
     }
 
     public set(key: string, value: string): void {
-        this.localStorage[key] = value;
+        this.localStorage[key] = value; 
     }
 
     public get(key: string): string {

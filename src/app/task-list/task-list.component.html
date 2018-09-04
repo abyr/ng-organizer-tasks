@@ -4,11 +4,11 @@
 
 <ul class="task-list">
     <li *ngFor="let task of taskList">
-        <app-task 
+        <app-task-list-item 
             [task]="task"
             (statusChanged)="saveChanges()"
             (removeTask)="removeFromList($event)"
-        ></app-task>
+        ></app-task-list-item>
     </li>
 </ul>
 

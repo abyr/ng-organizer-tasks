@@ -1,0 +1,8 @@
+.task.done {
+    text-decoration: line-through;
+}
+
+.control-done,
+.control-remove {
+    cursor: pointer;
+}

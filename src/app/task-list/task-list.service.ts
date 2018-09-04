@@ -20,4 +20,13 @@ export class TaskListService {
     setList(taskList: Task[]): void {
         this.localStorageService.setObject(this.listKey, taskList);
     }
+    
+    getTask(title: string) {
+        const list = this.localStorageService.getObject(this.listKey) || [];
+        
+        if (list.length) {
+            return list.find(x => x.title === title);
+        }
+        return;
+    }
 }

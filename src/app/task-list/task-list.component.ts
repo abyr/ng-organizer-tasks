@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TaskListService } from './task-list.service';
 import { Task } from '../models/task';
 
@@ -24,7 +24,6 @@ export class TaskListComponent implements OnInit {
     }
     
     removeFromList(title: string) {
-        console.log('remove', title);
         const filteredList = this.taskList.filter(x => x.title !== title);
         
         this.resetList(filteredList);

@@ -1,4 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common'
+import { TaskListService } from '../task-list/task-list.service';
 import { Task } from '../models/task';
 
 @Component({
@@ -10,22 +13,20 @@ export class TaskComponent implements OnInit {
   
   @Input()
   task: Task;
-  
-  @Output()
-  statusChanged = new EventEmitter<string>();
-  
-  @Output()
-  removeTask = new EventEmitter<string>();
-  
-  toggleDone() {
-    console.log('toggle selected');
-    this.task.done = !this.task.done;
-    this.statusChanged.emit(this.task.title);
+
+  constructor(
+    private route: ActivatedRoute,
+    private taskListService: TaskListService,
+    private location: Location
+  ) {}
+
+  ngOnInit() {
+    this.getTask()
   }
   
-  remove() {
-    this.removeTask.emit(this.task.title);
+  getTask(): void {
+    const title = this.route.snapshot.paramMap.get('title');
+    this.task = this.taskListService.getTask(title);;
   }
-  
-  ngOnInit() {}
+
 }

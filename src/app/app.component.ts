@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './models/task';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
+  task: Task; 
   
   title = 'Organiser. Tasks';
+  
+  openTask(task: Task) {
+    this.task = task;
+  }
 }
