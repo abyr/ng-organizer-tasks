@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
@@ -12,7 +12,7 @@ import { LocalStorageService } from './storage/local-storage.service';
 import { PluralPipe } from './pipes/plural.pipe';
 import { FilterListPipe } from './pipes/filter-list.pipe';
 import { TaskComponent } from './task/task.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { AppRoutingModule } from './/app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
   ],
   providers: [TaskListService, LocalStorageService],

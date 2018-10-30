@@ -7,11 +7,11 @@ import { Task } from './models/task';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  task: Task; 
-  
+
+  task: Task;
+
   title = 'Organiser. Tasks';
-  
+
   openTask(task: Task) {
     this.task = task;
   }
